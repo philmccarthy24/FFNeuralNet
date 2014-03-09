@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4A16C76A18CC5BCB00050366 /* libboost_serialization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A16C76918CC5BCB00050366 /* libboost_serialization.a */; };
-		4AC9F20418CA373F00BC7F0A /* TestRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AC9F20318CA373F00BC7F0A /* TestRunner.cpp */; };
+		4A268FB018CCE801006E27E3 /* FFNeuralNetTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A268FAF18CCE801006E27E3 /* FFNeuralNetTests.cpp */; };
+		4AC9F20418CA373F00BC7F0A /* ActivationFunctionTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AC9F20318CA373F00BC7F0A /* ActivationFunctionTests.cpp */; };
 		4AC9F20A18CA4FF300BC7F0A /* libFFNetLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC9F20918CA4FF300BC7F0A /* libFFNetLib.a */; };
 /* End PBXBuildFile section */
 
@@ -26,8 +27,9 @@
 
 /* Begin PBXFileReference section */
 		4A16C76918CC5BCB00050366 /* libboost_serialization.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_serialization.a; path = ../lib/boost/bin/libboost_serialization.a; sourceTree = "<group>"; };
+		4A268FAF18CCE801006E27E3 /* FFNeuralNetTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FFNeuralNetTests.cpp; sourceTree = "<group>"; };
 		4AC9F1EF18CA303800BC7F0A /* TestRunner */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TestRunner; sourceTree = BUILT_PRODUCTS_DIR; };
-		4AC9F20318CA373F00BC7F0A /* TestRunner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestRunner.cpp; sourceTree = "<group>"; };
+		4AC9F20318CA373F00BC7F0A /* ActivationFunctionTests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ActivationFunctionTests.cpp; sourceTree = "<group>"; };
 		4AC9F20918CA4FF300BC7F0A /* libFFNetLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFFNetLib.a; path = Build/Products/Debug/libFFNetLib.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,7 +67,8 @@
 		4AC9F1F118CA303800BC7F0A /* TestRunner */ = {
 			isa = PBXGroup;
 			children = (
-				4AC9F20318CA373F00BC7F0A /* TestRunner.cpp */,
+				4AC9F20318CA373F00BC7F0A /* ActivationFunctionTests.cpp */,
+				4A268FAF18CCE801006E27E3 /* FFNeuralNetTests.cpp */,
 			);
 			name = TestRunner;
 			path = ../test;
@@ -122,7 +125,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AC9F20418CA373F00BC7F0A /* TestRunner.cpp in Sources */,
+				4A268FB018CCE801006E27E3 /* FFNeuralNetTests.cpp in Sources */,
+				4AC9F20418CA373F00BC7F0A /* ActivationFunctionTests.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

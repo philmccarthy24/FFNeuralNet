@@ -18,8 +18,8 @@ class ILearningAlgorithm
 public:
     virtual ~ILearningAlgorithm() {};
     
-    virtual const std::pair<VectorXd, VectorXd>& NextTrainingPattern() = 0;
-    virtual void AdjustWeights(const VectorXd& outputPattern, MatrixXd& hiddenWeights, MatrixXd& outputWeights) = 0;
+    virtual const std::pair<VectorXd, VectorXd>& GetNextTrainingPattern() const = 0;
+    virtual void AdjustWeights(const VectorXd& outputPattern, MatrixXd& hiddenWeights, MatrixXd& outputWeights) const = 0;
     
     static const std::pair<VectorXd, VectorXd> no_more_patterns;
 };

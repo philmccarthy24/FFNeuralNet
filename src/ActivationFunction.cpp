@@ -86,7 +86,7 @@ ActivationFunction::~ActivationFunction()
 {
 }
 
-double ActivationFunction::f(double x)
+double ActivationFunction::f(double x) const
 {
     return m_impl->Evaluate(x);
 }

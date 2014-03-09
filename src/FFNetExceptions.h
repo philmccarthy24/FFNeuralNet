@@ -37,5 +37,17 @@ private:
     std::string m_invalidExpression;
     std::string m_specificError;
 };
+        
+class NeuralNetTopologyMismatch : public std::invalid_argument
+{
+public:
+    NeuralNetTopologyMismatch(const std::string& message) :
+    std::invalid_argument(message)
+    {
+    }
+    virtual ~NeuralNetTopologyMismatch()
+    {
+    }
+};
 
 #endif

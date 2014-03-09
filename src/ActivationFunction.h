@@ -12,22 +12,21 @@
 #include <boost/archive/binary_oarchive.hpp>
 #include <boost/archive/binary_iarchive.hpp>
 
-// note - expression string must contain 'x' as its unary operand / variable
+// note - expression string must contain 'x' as its unary operand / variable,
+// and be of the syntax described at http://www.partow.net/programming/exprtk/index.html.
 class ActivationFunction
 {
 public:
-    ActivationFunction();
+    ActivationFunction(); // for deserialisation use only
     ActivationFunction(const std::string& expressionString);
     virtual ~ActivationFunction();
     
-    virtual double f(double x);
+    double f(double x) const; // the function clients call
     
 private:
+    //////// boost serialization stuff /////////////////////
     friend class boost::serialization::access;
     
-    // When the class Archive corresponds to an output archive, the
-    // & operator is defined similar to <<.  Likewise, when the class Archive
-    // is a type of input archive the & operator is defined similar to >>.
     template<class Archive>
     void serialize(Archive & ar, const unsigned int version)
     {
@@ -44,9 +43,11 @@ private:
     void load(Archive & ar, const unsigned int version)
     {
         ar >> m_expressionString;
-        // compile the expression ready for use
+        // initialise this expression obj ready for use
+        // (which internally does an ExprTk::parser::compile)
         Init();
     }
+    /////////////////////////////////////////////////////////
     
     void Init();
     

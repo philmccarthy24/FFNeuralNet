@@ -12,24 +12,23 @@
 
 using namespace Eigen;
 
-FFNeuralNet::FFNeuralNet(long inputUnitCount, long hiddenUnitCount, long outputUnitCount) :
-impl_(std::unique_ptr<FFNeuralNetImpl>(new FFNeuralNetImpl(inputUnitCount, hiddenUnitCount, outputUnitCount)))
+FFNeuralNet::FFNeuralNet()
+    : m_impl(nullptr)
+{
+}
+
+FFNeuralNet::FFNeuralNet(long inputUnitCount,
+                         long hiddenUnitCount,
+                         long outputUnitCount,
+                         const std::string& activationFunction)
+    : m_impl(std::unique_ptr<FFNeuralNetImpl>(new FFNeuralNetImpl(inputUnitCount,
+                                                                  hiddenUnitCount,
+                                                                  outputUnitCount,
+                                                                  activationFunction)))
 {
 }
 
 std::vector<double> FFNeuralNet::Evaluate(const std::vector<double>& inputs) const
 {
-    // get input activations as an "Eigen" lib vector so we can do linear algebra on it
-    VectorXd inputActivations(inputs.size() + 1);
-    
-    inputActivations.Map(inputs.data(), inputs.size());
-    // and add the bias input!
-    inputActivations << -1;
-    
-    VectorXd outputActivations = impl_->Evaluate(inputActivations);
-    
-    // convert math vector back to stl vector
-    std::vector<double> outputs(outputActivations.data(), outputActivations.count());
-    
-    return outputs;
+    return m_impl->Evaluate(inputs);
 }

@@ -9,7 +9,7 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../test/TestRunner.cpp"
+            filePath = "../test/ActivationFunctionTests.cpp"
             timestampString = "416052020.122978"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -23,23 +23,7 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../src/ActivationFunction.cpp"
-            timestampString = "416052311.393317"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "CompileExpression(const std::string&amp; expressionString)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../test/TestRunner.cpp"
+            filePath = "../test/ActivationFunctionTests.cpp"
             timestampString = "416052020.122978"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -55,7 +39,7 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../test/TestRunner.cpp"
+            filePath = "../test/ActivationFunctionTests.cpp"
             timestampString = "416052020.122978"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"

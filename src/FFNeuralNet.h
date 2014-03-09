@@ -11,6 +11,8 @@
 
 #include <memory>
 #include <vector>
+#include <boost/archive/binary_oarchive.hpp>
+#include <boost/archive/binary_iarchive.hpp>
 
 class FFNeuralNetImpl; // Not defined here
 
@@ -18,12 +20,27 @@ class FFNeuralNetImpl; // Not defined here
 class FFNeuralNet
 {
 public:
-    FFNeuralNet(long inputUnitCount, long hiddenUnitCount, long outputUnitCount);
+    FFNeuralNet(); // for deserialisation use only
+    FFNeuralNet(long inputUnitCount,
+                long hiddenUnitCount,
+                long outputUnitCount,
+                const std::string& activationFunction = "1/(1+exp(-x))"); // unipolar sigmoid as default
     
     std::vector<double> Evaluate(const std::vector<double>& inputs) const;
     
 private:
-    std::unique_ptr<FFNeuralNetImpl> impl_;
+    //////// boost serialization ///////////////////////////
+    friend class boost::serialization::access;
+    
+    template<class Archive>
+    void serialize(Archive & ar, const unsigned int version)
+    {
+        ar & m_impl;
+    }
+    ////////////////////////////////////////////////////////
+    
+    // private implementation
+    std::unique_ptr<FFNeuralNetImpl> m_impl;
 };
 
 #endif

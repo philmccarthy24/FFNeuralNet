@@ -7,12 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A268FA618CCBB8C006E27E3 /* FFNeuralNet.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A268F9E18CCBB8C006E27E3 /* FFNeuralNet.h */; };
+		4A268FA718CCBB8C006E27E3 /* FFNeuralNetImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A268F9F18CCBB8C006E27E3 /* FFNeuralNetImpl.h */; };
+		4A268FA818CCBB8C006E27E3 /* LearningAlgorithm.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A268FA018CCBB8C006E27E3 /* LearningAlgorithm.h */; };
+		4A268FAA18CCBB8C006E27E3 /* FFNeuralNet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A268FA218CCBB8C006E27E3 /* FFNeuralNet.cpp */; };
+		4A268FAB18CCBB8C006E27E3 /* FFNeuralNetImpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A268FA318CCBB8C006E27E3 /* FFNeuralNetImpl.cpp */; };
+		4A268FAC18CCBB8C006E27E3 /* LearningAlgorithm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A268FA418CCBB8C006E27E3 /* LearningAlgorithm.cpp */; };
+		4A268FAE18CCC5DF006E27E3 /* EigenUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A268FAD18CCC5DF006E27E3 /* EigenUtil.h */; };
 		4A42057A18CB75050043698E /* FFNetExceptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A42057918CB75050043698E /* FFNetExceptions.h */; };
 		4AC9F1E318CA2FF300BC7F0A /* ActivationFunction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AC9F1DF18CA2FF300BC7F0A /* ActivationFunction.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4A1E951718CA2D0700509140 /* libFFNetLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFFNetLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A268F9E18CCBB8C006E27E3 /* FFNeuralNet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FFNeuralNet.h; path = ../src/FFNeuralNet.h; sourceTree = "<group>"; };
+		4A268F9F18CCBB8C006E27E3 /* FFNeuralNetImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FFNeuralNetImpl.h; path = ../src/FFNeuralNetImpl.h; sourceTree = "<group>"; };
+		4A268FA018CCBB8C006E27E3 /* LearningAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LearningAlgorithm.h; path = ../src/LearningAlgorithm.h; sourceTree = "<group>"; };
+		4A268FA218CCBB8C006E27E3 /* FFNeuralNet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FFNeuralNet.cpp; path = ../src/FFNeuralNet.cpp; sourceTree = "<group>"; };
+		4A268FA318CCBB8C006E27E3 /* FFNeuralNetImpl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FFNeuralNetImpl.cpp; path = ../src/FFNeuralNetImpl.cpp; sourceTree = "<group>"; };
+		4A268FA418CCBB8C006E27E3 /* LearningAlgorithm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LearningAlgorithm.cpp; path = ../src/LearningAlgorithm.cpp; sourceTree = "<group>"; };
+		4A268FAD18CCC5DF006E27E3 /* EigenUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EigenUtil.h; path = ../src/EigenUtil.h; sourceTree = "<group>"; };
 		4A42057918CB75050043698E /* FFNetExceptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FFNetExceptions.h; path = ../src/FFNetExceptions.h; sourceTree = "<group>"; };
 		4AC9F1DC18CA2FF300BC7F0A /* ActivationFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivationFunction.h; path = ../src/ActivationFunction.h; sourceTree = "<group>"; };
 		4AC9F1DF18CA2FF300BC7F0A /* ActivationFunction.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ActivationFunction.cpp; path = ../src/ActivationFunction.cpp; sourceTree = "<group>"; };
@@ -32,6 +46,13 @@
 		4A1E950E18CA2D0700509140 = {
 			isa = PBXGroup;
 			children = (
+				4A268FAD18CCC5DF006E27E3 /* EigenUtil.h */,
+				4A268F9E18CCBB8C006E27E3 /* FFNeuralNet.h */,
+				4A268F9F18CCBB8C006E27E3 /* FFNeuralNetImpl.h */,
+				4A268FA018CCBB8C006E27E3 /* LearningAlgorithm.h */,
+				4A268FA218CCBB8C006E27E3 /* FFNeuralNet.cpp */,
+				4A268FA318CCBB8C006E27E3 /* FFNeuralNetImpl.cpp */,
+				4A268FA418CCBB8C006E27E3 /* LearningAlgorithm.cpp */,
 				4A42057918CB75050043698E /* FFNetExceptions.h */,
 				4AC9F1DC18CA2FF300BC7F0A /* ActivationFunction.h */,
 				4AC9F1DF18CA2FF300BC7F0A /* ActivationFunction.cpp */,
@@ -54,7 +75,11 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A268FA618CCBB8C006E27E3 /* FFNeuralNet.h in Headers */,
+				4A268FA818CCBB8C006E27E3 /* LearningAlgorithm.h in Headers */,
 				4A42057A18CB75050043698E /* FFNetExceptions.h in Headers */,
+				4A268FAE18CCC5DF006E27E3 /* EigenUtil.h in Headers */,
+				4A268FA718CCBB8C006E27E3 /* FFNeuralNetImpl.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,7 +134,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A268FAB18CCBB8C006E27E3 /* FFNeuralNetImpl.cpp in Sources */,
 				4AC9F1E318CA2FF300BC7F0A /* ActivationFunction.cpp in Sources */,
+				4A268FAC18CCBB8C006E27E3 /* LearningAlgorithm.cpp in Sources */,
+				4A268FAA18CCBB8C006E27E3 /* FFNeuralNet.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +221,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					../lib,
 					../lib/exprtk,
+					../lib/eigen,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -207,6 +236,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					../lib,
 					../lib/exprtk,
+					../lib/eigen,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
