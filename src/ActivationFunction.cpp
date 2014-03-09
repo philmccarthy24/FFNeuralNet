@@ -8,6 +8,8 @@
 
 #include "ActivationFunction.h"
 #include "exprtk.hpp"
+#include <sstream>
+#include "FFNetExceptions.h"
 
 // private data we want hidden from client code (to reduce library dependencies
 // and not require client knowledge of ExprTk). this is the pimpl / d pointer pattern.
@@ -18,10 +20,16 @@ public:
     typedef exprtk::expression<double> expression_t;
     typedef exprtk::parser<double> parser_t;
     typedef exprtk::parser_error::type error_t;
-
-    void CompileExpression(const std::string& expressionString, const std::string& unaryOperandVarName)
+    
+    ExprTkWrapper() :
+        boundVariable(0.0),
+        isInitialised(false)
     {
-        symbolTable.add_variable(unaryOperandVarName, boundVariable);
+    }
+
+    void CompileExpression(const std::string& expressionString)
+    {
+        symbolTable.add_variable("x", boundVariable);
         symbolTable.add_constants();
         
         expression.register_symbol_table(symbolTable);
@@ -40,10 +48,16 @@ public:
             
             throw InvalidExpressionException(expressionString, sstr.str());
         }
+        isInitialised = true;
     }
     
     double Evaluate(double x)
     {
+        if (!isInitialised)
+        {
+            // can't evaluate expression that hasn't been set
+            throw InvalidExpressionException("", "no expression specified - was Init() called?");
+        }
         boundVariable = x;
         return expression.value();
     }
@@ -53,20 +67,19 @@ private:
     expression_t expression;
     parser_t parser;
     double boundVariable;
+    bool isInitialised;
 };
 
-ActivationFunction::ActivationFunction(std::istream& inStream)
+ActivationFunction::ActivationFunction()
+    : m_impl(std::unique_ptr<ExprTkWrapper>(new ActivationFunction::ExprTkWrapper))
 {
-    Load(inStream);
 }
 
-ActivationFunction::ActivationFunction(const std::string& expressionString, const std::string& unaryOperandVarName)
+ActivationFunction::ActivationFunction(const std::string& expressionString)
     : m_impl(std::unique_ptr<ExprTkWrapper>(new ActivationFunction::ExprTkWrapper)),
-    m_expressionString(expressionString),
-    m_unaryOperand(unaryOperandVarName)
+    m_expressionString(expressionString)
 {
-    // compile ExprTk expression from string
-    m_impl->CompileExpression(expressionString, unaryOperandVarName);
+    Init();
 }
 
 ActivationFunction::~ActivationFunction()
@@ -78,17 +91,9 @@ double ActivationFunction::f(double x)
     return m_impl->Evaluate(x);
 }
 
-void ActivationFunction::Load(std::istream& inStream)
+void ActivationFunction::Init()
 {
-    inStream >> m_expressionString;
-    inStream >> m_unaryOperand;
-    
     // compile ExprTk expression from string
-    m_impl->CompileExpression(m_expressionString, m_unaryOperand);
+    m_impl->CompileExpression(m_expressionString);
 }
 
-void ActivationFunction::Store(std::ostream& outStream)
-{
-    outStream << m_expressionString;
-    outStream << m_unaryOperand;
-}

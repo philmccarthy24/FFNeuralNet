@@ -9,23 +9,48 @@
 #ifndef __SimpleFFNet__ExprTkFunction__
 #define __SimpleFFNet__ExprTkFunction__
 
-#include <iostream>
-#include "StorableUnaryFunction.h"
+#include <boost/archive/binary_oarchive.hpp>
+#include <boost/archive/binary_iarchive.hpp>
 
-class ActivationFunction : public IStorableUnaryFunction
+// note - expression string must contain 'x' as its unary operand / variable
+class ActivationFunction
 {
 public:
-    ActivationFunction(std::istream& inStream);
-    ActivationFunction(const std::string& expression, const std::string& unaryOperandVarName);
+    ActivationFunction();
+    ActivationFunction(const std::string& expressionString);
     virtual ~ActivationFunction();
     
-    virtual double f(double x) override;
-    virtual void Load(std::istream& inStream) override;
-    virtual void Store(std::ostream& outStream) override;
+    virtual double f(double x);
     
 private:
+    friend class boost::serialization::access;
+    
+    // When the class Archive corresponds to an output archive, the
+    // & operator is defined similar to <<.  Likewise, when the class Archive
+    // is a type of input archive the & operator is defined similar to >>.
+    template<class Archive>
+    void serialize(Archive & ar, const unsigned int version)
+    {
+        boost::serialization::split_member(ar, *this, version);
+    }
+    
+    template<class Archive>
+    void save(Archive & ar, const unsigned int version) const
+    {
+        ar << m_expressionString;
+    }
+    
+    template<class Archive>
+    void load(Archive & ar, const unsigned int version)
+    {
+        ar >> m_expressionString;
+        // compile the expression ready for use
+        Init();
+    }
+    
+    void Init();
+    
     std::string m_expressionString;
-    std::string m_unaryOperand;
     
     class ExprTkWrapper;
     std::unique_ptr<ExprTkWrapper> m_impl;

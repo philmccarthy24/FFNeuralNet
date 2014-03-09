@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A16C76A18CC5BCB00050366 /* libboost_serialization.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A16C76918CC5BCB00050366 /* libboost_serialization.a */; };
 		4AC9F20418CA373F00BC7F0A /* TestRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4AC9F20318CA373F00BC7F0A /* TestRunner.cpp */; };
 		4AC9F20A18CA4FF300BC7F0A /* libFFNetLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AC9F20918CA4FF300BC7F0A /* libFFNetLib.a */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4A16C76918CC5BCB00050366 /* libboost_serialization.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_serialization.a; path = ../lib/boost/bin/libboost_serialization.a; sourceTree = "<group>"; };
 		4AC9F1EF18CA303800BC7F0A /* TestRunner */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TestRunner; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AC9F20318CA373F00BC7F0A /* TestRunner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TestRunner.cpp; sourceTree = "<group>"; };
 		4AC9F20918CA4FF300BC7F0A /* libFFNetLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFFNetLib.a; path = Build/Products/Debug/libFFNetLib.a; sourceTree = "<group>"; };
@@ -34,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A16C76A18CC5BCB00050366 /* libboost_serialization.a in Frameworks */,
 				4AC9F20A18CA4FF300BC7F0A /* libFFNetLib.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -44,6 +47,7 @@
 		4AC9F1E618CA303800BC7F0A = {
 			isa = PBXGroup;
 			children = (
+				4A16C76918CC5BCB00050366 /* libboost_serialization.a */,
 				4AC9F20918CA4FF300BC7F0A /* libFFNetLib.a */,
 				4AC9F1F118CA303800BC7F0A /* TestRunner */,
 				4AC9F1F018CA303800BC7F0A /* Products */,
@@ -219,7 +223,7 @@
 					../src,
 					../lib,
 				);
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = /Users/phil/Workspace/FFNeuralNet/lib/boost/bin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"TEST_HOST[sdk=*]" = "";
 			};
@@ -238,7 +242,7 @@
 					../src,
 					../lib,
 				);
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = /Users/phil/Workspace/FFNeuralNet/lib/boost/bin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
