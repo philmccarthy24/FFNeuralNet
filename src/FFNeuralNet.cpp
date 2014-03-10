@@ -8,7 +8,6 @@
 
 #include "FFNeuralNetImpl.h"
 #include "FFNeuralNet.h"
-#include <Eigen/Dense>
 
 using namespace Eigen;
 

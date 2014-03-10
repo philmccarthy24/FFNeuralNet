@@ -29,9 +29,13 @@ public:
                     long hiddenUnitCount,
                     long outputUnitCount,
                     const std::string& activationFunction);
+    FFNeuralNetImpl(long inputUnitCount,
+                    const MatrixXd& hiddenWeights,
+                    const MatrixXd& outputWeights,
+                    const std::string& activationFunction);
     virtual ~FFNeuralNetImpl();
     
-    void Train(const ILearningAlgorithm& learningAlgorithm);
+    void Train(ILearningAlgorithm& learningAlgorithm);
     
     std::vector<double> Evaluate(const std::vector<double>& inputs) const;
     
@@ -64,6 +68,8 @@ private:
         m_isInitialised = true;
     }
     ////////////////////////////////////////////////////////
+    
+    void Evaluate_internal(const VectorXd& inputActivations, VectorXd& outputActivations) const;
     
     long m_inputUnitCount;
     

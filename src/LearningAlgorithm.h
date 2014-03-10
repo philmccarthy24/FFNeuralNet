@@ -10,18 +10,35 @@
 #define SimpleFFNet_LearningAlgorithm_h
 
 #include <Eigen/Dense>
+#include "TrainingSetIterator.h"
 
 using namespace Eigen;
 
 class ILearningAlgorithm
 {
+    friend class training_set_iterator;
 public:
-    virtual ~ILearningAlgorithm() {};
+    virtual ~ILearningAlgorithm()
+    {
+    };
     
-    virtual const std::pair<VectorXd, VectorXd>& GetNextTrainingPattern() const = 0;
+    // begin and end to allow iteration over a training set.
+    training_set_iterator begin()
+    {
+        return training_set_iterator(*this, GetNextExemplar());
+    }
+    training_set_iterator end()
+    {
+        return training_set_iterator(*this, nullptr);
+    }
+    
     virtual void AdjustWeights(const VectorXd& outputPattern, MatrixXd& hiddenWeights, MatrixXd& outputWeights) const = 0;
     
-    static const std::pair<VectorXd, VectorXd> no_more_patterns;
+protected:
+    // up to implementors to determine the order of exemplars and end condition.
+    // to signal no more exemplars, return nullptr.
+    // note exemplar input vector size must match number of input units.
+    virtual const exemplar* GetNextExemplar() = 0;
 };
 
 #endif

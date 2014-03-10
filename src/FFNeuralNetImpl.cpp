@@ -17,13 +17,25 @@ FFNeuralNetImpl::FFNeuralNetImpl()
 }
 
 FFNeuralNetImpl::FFNeuralNetImpl(long inputUnitCount,
+                                 const MatrixXd& hiddenWeights,
+                                 const MatrixXd& outputWeights,
+                                 const std::string& activationFunction)
+    : m_inputUnitCount(inputUnitCount),
+    m_HiddenLayer(hiddenWeights),
+    m_OutputLayer(outputWeights),
+    m_activationFunction(activationFunction),
+    m_isInitialised(true)
+{
+}
+
+FFNeuralNetImpl::FFNeuralNetImpl(long inputUnitCount,
                                  long hiddenUnitCount,
                                  long outputUnitCount,
                                  const std::string& activationFunction)
     : m_inputUnitCount(inputUnitCount),
-    // m is number of neurons in layer, n is input weights from prev layer + 1 bias weight (threshold simplification)
-    m_HiddenLayer(hiddenUnitCount, inputUnitCount + 1),
-    m_OutputLayer(outputUnitCount, hiddenUnitCount + 1),
+    // m is number of neurons in layer, n is input weights from prev layer
+    m_HiddenLayer(hiddenUnitCount, inputUnitCount + 1),  // + 1 bias weight (threshold simplification)
+    m_OutputLayer(outputUnitCount, hiddenUnitCount + 1),  // + 1 bias weight (threshold simplification)
     m_activationFunction(activationFunction),
     m_isInitialised(true)
 {
@@ -56,41 +68,39 @@ FFNeuralNetImpl::~FFNeuralNetImpl()
 ///                     size of this vector == outputUnitCount
 std::vector<double> FFNeuralNetImpl::Evaluate(const std::vector<double>& inputs) const
 {
-    VectorXd inputActivations(m_inputUnitCount + 1);
+    // fill the math vector
+    VectorXd inputActivations = Map<const VectorXd> (inputs.data(), inputs.size());
     
-    // validate function input
-    size_t inputCount = inputs.size();
-    if (inputCount == m_inputUnitCount + 1)
-    {
-        // abnormal case - check if client has pre-added bias value
-        if (inputs.back() == -1)
-        {
-            // caller has pre-added bias value. we can handle the input below
-            inputCount--;
-        }
-        else
-        {
-            throw NeuralNetTopologyMismatch("activation input must match number of activation units");
-        }
-    }
-    if (inputCount == m_inputUnitCount)
-    {
-        // usual case - one activation value per input unit
-        // we need to add -1 bias value
-        for (double d : inputs)
-        {
-            inputActivations << d;
-        }
-        inputActivations << -1.0;
-    }
-    else
+    VectorXd outputActivations;
+    Evaluate_internal(inputActivations, outputActivations);
+    
+    std::vector<double> outputs(outputActivations.data(),
+                                outputActivations.data() + outputActivations.size());
+    return outputs;
+}
+
+void FFNeuralNetImpl::Evaluate_internal(const VectorXd& inputActivations, VectorXd& outputActivations) const
+{
+    if (inputActivations.size() != m_inputUnitCount)
     {
         // input is invalid for this neural net topology
         throw NeuralNetTopologyMismatch("activation input must match number of activation units");
     }
     
+    // bias activation
+    VectorXd bias(1);
+    bias << -1.0;
+    
     // calculate hidden layer net inputs
-    VectorXd hiddenNetInputs = inputActivations * m_HiddenLayer;
+    VectorXd inputPlusBias(m_inputUnitCount + 1);
+    inputPlusBias << inputActivations, bias;
+    
+    std::cout << "input +b : " << inputPlusBias << std::endl << std::endl;
+    std::cout << "hidden weights : " << m_HiddenLayer << std::endl << std::endl;
+    
+    VectorXd hiddenNetInputs = m_HiddenLayer * inputPlusBias;
+    
+    std::cout << "hidden net inputs : " << hiddenNetInputs << std::endl << std::endl;
     
     // calculate hidden layer activations
     VectorXd hiddenActivations = hiddenNetInputs.unaryExpr(
@@ -100,37 +110,32 @@ std::vector<double> FFNeuralNetImpl::Evaluate(const std::vector<double>& inputs)
        });
     
     // calculate output layer net inputs
-    VectorXd outputNetInputs = hiddenActivations * m_OutputLayer;
+    VectorXd hiddenPlusBias(m_HiddenLayer.rows() + 1);
+    hiddenPlusBias << hiddenActivations, bias;
+    
+    std::cout << "hidden activations +b : " << hiddenPlusBias << std::endl << std::endl;
+    std::cout << "output weights : " << m_OutputLayer << std::endl << std::endl;
+    
+    VectorXd outputNetInputs = m_OutputLayer * hiddenPlusBias;
+    
+    std::cout << "output net inputs : " << outputNetInputs << std::endl << std::endl;
     
     // calculate output layer activations
-    VectorXd outputActivations = outputNetInputs.unaryExpr(
+    outputActivations = outputNetInputs.unaryExpr(
        [&] (double x) -> double
        {
            return m_activationFunction.f(x);
        });
     
-    // convert math vector back to stl vector
-    std::vector<double> outputs;
-    for (int k = 0; k < outputActivations.size(); k++)
-    {
-        outputs.push_back(outputActivations[k]);
-    }
-    
-    return outputs;
+    std::cout << "output activations : " << outputActivations << std::endl << std::endl;
 }
-        
-        
-void FFNeuralNetImpl::Train(const ILearningAlgorithm& learningAlgorithm)
+
+void FFNeuralNetImpl::Train(ILearningAlgorithm& learningAlgorithm)
 {
-    for (const auto& p = learningAlgorithm.GetNextTrainingPattern();
-         p != ILearningAlgorithm::no_more_patterns;
-         p = learningAlgorithm.GetNextTrainingPattern())
+    for (auto exemplar : learningAlgorithm)
     {
-        // what to do here?
+        VectorXd outputActivations;
+        Evaluate_internal(exemplar.first, outputActivations);
+        learningAlgorithm.AdjustWeights(outputActivations, m_HiddenLayer, m_OutputLayer);
     }
-    bool bContinueLearning = true;
-    while (bContinueLearning)
-    {
-        
-    }learningAlgorithm.GetNextTrainingPattern()
 }

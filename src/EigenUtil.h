@@ -9,6 +9,10 @@
 #ifndef FFNeuralNet_EigenUtil_h
 #define FFNeuralNet_EigenUtil_h
 
+#include <Eigen/Dense>
+
+using namespace Eigen;
+
 // general global function to allow matrices to be serialised via boost.
 namespace boost
 {
@@ -26,16 +30,7 @@ namespace boost
 
 namespace EigenUtil
 {
-    void FillNoise(MatrixXd& matrixToFill, double min, double max)
-    {
-        srand((unsigned int)time(nullptr));
-        
-        for (int i = 0; i < matrixToFill.size(); i++)
-        {
-            double randomNumber = min + ((double)rand() / RAND_MAX) * (max - min);
-            matrixToFill[i] = randomNumber;
-        }
-    }
+    void FillNoise(MatrixXd& matrixToFill, double min, double max);
 }
 
 #endif

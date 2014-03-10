@@ -219,13 +219,14 @@
 				"ADDITIONAL_SDKS[arch=*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/phil/Workspace/SimpleFFNet/XCode5,
+					/Users/phil/Workspace/FFNeuralNet/XCode5,
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					../src,
 					../lib,
+					../lib/eigen,
 				);
 				LIBRARY_SEARCH_PATHS = /Users/phil/Workspace/FFNeuralNet/lib/boost/bin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -238,13 +239,14 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/phil/Workspace/SimpleFFNet/XCode5,
+					/Users/phil/Workspace/FFNeuralNet/XCode5,
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					../src,
 					../lib,
+					../lib/eigen,
 				);
 				LIBRARY_SEARCH_PATHS = /Users/phil/Workspace/FFNeuralNet/lib/boost/bin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
