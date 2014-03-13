@@ -9,13 +9,9 @@
 #ifndef __FFNeuralNet__TrainingSetIterator__
 #define __FFNeuralNet__TrainingSetIterator__
 
-#include <Eigen/Dense>
-
-using namespace Eigen;
+#include "FFNetCommon.h"
 
 class ILearningAlgorithm;
-
-typedef std::pair<VectorXd, VectorXd> exemplar;
 
 // syntactic sugar class for range-based for.
 // allows iteration over a training set until

@@ -40,8 +40,8 @@ FFNeuralNetImpl::FFNeuralNetImpl(long inputUnitCount,
     m_isInitialised(true)
 {
     // initialise the weight matrices with random values
-    EigenUtil::FillNoise(m_HiddenLayer, -2.0, 2.0);
-    EigenUtil::FillNoise(m_OutputLayer, -2.0, 2.0);
+    FFNetUtil::FillNoise(m_HiddenLayer, -2.0, 2.0);
+    FFNetUtil::FillNoise(m_OutputLayer, -2.0, 2.0);
     
     // set the last column in each weight matrix to the 1 weight bias value
     m_HiddenLayer.col(inputUnitCount).fill(1.0);

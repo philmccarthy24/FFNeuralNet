@@ -16,7 +16,7 @@
 #include "ActivationFunction.h"
 #include <boost/archive/binary_oarchive.hpp>
 #include <boost/archive/binary_iarchive.hpp>
-#include "EigenUtil.h"
+#include "FFNetCommon.h"
 
 using namespace Eigen;
 

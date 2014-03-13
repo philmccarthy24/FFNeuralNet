@@ -1,17 +1,20 @@
 //
-//  EigenUtil.h
+//  FFNetCommon.h
 //  FFNeuralNet
 //
-//  Created by Phil McCarthy on 09/03/2014.
+//  Created by Phil McCarthy on 11/03/2014.
 //  Copyright (c) 2014 Cognitive Research Systems. All rights reserved.
 //
 
-#ifndef FFNeuralNet_EigenUtil_h
-#define FFNeuralNet_EigenUtil_h
+#ifndef FFNeuralNet_FFNetCommon_h
+#define FFNeuralNet_FFNetCommon_h
 
 #include <Eigen/Dense>
 
 using namespace Eigen;
+
+// define exemplar type
+typedef std::pair<VectorXd, VectorXd> exemplar;
 
 // general global function to allow matrices to be serialised via boost.
 namespace boost
@@ -28,9 +31,12 @@ namespace boost
     }
 }
 
-namespace EigenUtil
+namespace FFNetUtil
 {
     void FillNoise(MatrixXd& matrixToFill, double min, double max);
+    
+    double GenerateRandomDouble(double min, double max);
+    int GenerateRandomInteger(int min, int max);
 }
 
 #endif

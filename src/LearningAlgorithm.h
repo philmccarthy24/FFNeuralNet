@@ -9,10 +9,7 @@
 #ifndef SimpleFFNet_LearningAlgorithm_h
 #define SimpleFFNet_LearningAlgorithm_h
 
-#include <Eigen/Dense>
 #include "TrainingSetIterator.h"
-
-using namespace Eigen;
 
 class ILearningAlgorithm
 {
@@ -32,7 +29,7 @@ public:
         return training_set_iterator(*this, nullptr);
     }
     
-    virtual void AdjustWeights(const VectorXd& outputPattern, MatrixXd& hiddenWeights, MatrixXd& outputWeights) const = 0;
+    virtual void AdjustWeights(const VectorXd& hiddenActivations, const VectorXd& outputPattern, MatrixXd& hiddenWeights, MatrixXd& outputWeights) const = 0;
     
 protected:
     // up to implementors to determine the order of exemplars and end condition.

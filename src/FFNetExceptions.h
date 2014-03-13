@@ -16,7 +16,7 @@
 class InvalidExpressionException : public std::invalid_argument
 {
 public:
-    InvalidExpressionException(const std::string& expression, const std::string& error) :
+    explicit InvalidExpressionException(const std::string& expression, const std::string& error) :
     std::invalid_argument(expression),
     m_invalidExpression(expression),
     m_specificError(error)
@@ -41,11 +41,20 @@ private:
 class NeuralNetTopologyMismatch : public std::invalid_argument
 {
 public:
-    NeuralNetTopologyMismatch(const std::string& message) :
+    explicit NeuralNetTopologyMismatch(const std::string& message) :
     std::invalid_argument(message)
     {
     }
     virtual ~NeuralNetTopologyMismatch()
+    {
+    }
+};
+        
+class InvalidLearningAlgorithmState : public std::runtime_error
+{
+public:
+    explicit InvalidLearningAlgorithmState(const std::string& what_arg) :
+    std::runtime_error(what_arg)
     {
     }
 };

@@ -10,20 +10,28 @@
 #define __SimpleFFNet__BackPropagation__
 
 #include "LearningAlgorithm.h"
-#include <iostream>
+#include <vector>
 
 class BackPropagation : public ILearningAlgorithm
 {
 public:
-    BackPropagation(double learningRate);
+    BackPropagation(double learningRate, double targetNetworkError, int iterationLimit, const std::vector<exemplar>& trainingSet);
     virtual ~BackPropagation();
     
-    virtual const std::pair<VectorXd, VectorXd>& NextTrainingPattern() override;
-    virtual void AdjustWeights(const VectorXd& outputPattern, MatrixXd& hiddenWeights, MatrixXd& outputWeights) override;
+    virtual void AdjustWeights(const VectorXd& hiddenActivations, const VectorXd& outputPattern, MatrixXd& hiddenWeights, MatrixXd& outputWeights) const override;
+    
+protected:
+    virtual const exemplar* GetNextExemplar() override;
     
 private:
-    double m_learningRate;
-
+    double m_learningRate;   // eta
+    double m_targetNetworkError;
+    double m_cumulativeNetworkError;
+    const std::vector<exemplar>& m_trainingSet;
+    
+    // vars for exemplar provisioning
+    std::vector<exemplar*> m_ExemplarQueue;
+    exemplar* m_pCurrentExemplar;
 };
 
 #endif /* defined(__SimpleFFNet__BackPropagation__) */
