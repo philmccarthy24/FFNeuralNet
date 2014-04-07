@@ -9,13 +9,12 @@
 #ifndef FFNeuralNet_FFNetCommon_h
 #define FFNeuralNet_FFNetCommon_h
 
+#include <vector>
 #include <Eigen/Dense>
 
 using namespace Eigen;
 
-// define exemplar type
-typedef std::pair<VectorXd, VectorXd> exemplar;
-
+/*
 // general global function to allow matrices to be serialised via boost.
 namespace boost
 {
@@ -30,13 +29,17 @@ namespace boost
         }
     }
 }
+*/
+
+typedef std::vector<long> NeuralNetTopology;
 
 namespace FFNetUtil
 {
     void FillNoise(MatrixXd& matrixToFill, double min, double max);
     
     double GenerateRandomDouble(double min, double max);
-    int GenerateRandomInteger(int min, int max);
 }
+
+
 
 #endif

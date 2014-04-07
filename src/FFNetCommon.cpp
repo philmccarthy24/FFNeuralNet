@@ -21,14 +21,7 @@ namespace FFNetUtil
     
     double GenerateRandomDouble(double min, double max)
     {
-        srand(static_cast<unsigned int>(time(nullptr)));
-        double frac = (double)rand() / RAND_MAX;
+        double frac = ((double)rand() / (double)RAND_MAX);
         return min + (frac * (max - min));
-    }
-    
-    int GenerateRandomInteger(int min, int max)
-    {
-        srand(static_cast<unsigned int>(time(nullptr)));
-        return min + (rand() % (max - min) + 1);
     }
 }

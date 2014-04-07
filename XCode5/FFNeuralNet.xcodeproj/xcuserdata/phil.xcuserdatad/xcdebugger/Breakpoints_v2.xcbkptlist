@@ -56,12 +56,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../test/FFNeuralNetTests.cpp"
-            timestampString = "416166902.560474"
+            timestampString = "418580461.76048"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "TEST_CASE( &quot;Test neural net correct evaluation&quot;, &quot;[FFNeuralNetImpl]&quot; )"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "TEST_CASE( &quot;Test neural net correct evaluation&quot;, &quot;LayeredFeedForwardNeuralNet&quot; )"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -118,12 +118,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../test/FFNeuralNetTests.cpp"
-            timestampString = "416166902.560474"
+            timestampString = "418580230.111027"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "TEST_CASE( &quot;Test neural net correct evaluation&quot;, &quot;[FFNeuralNetImpl]&quot; )"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "TEST_CASE( &quot;Test neural net correct evaluation&quot;, &quot;LayeredFeedForwardNeuralNet&quot; )"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -211,44 +211,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../test/FFNeuralNetTests.cpp"
-            timestampString = "416166938.852172"
+            filePath = "../src/LearningAlgorithm.h"
+            timestampString = "416264012.463637"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "TEST_CASE( &quot;Test neural net correct evaluation&quot;, &quot;[FFNeuralNetImpl]&quot; )"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "____C_A_T_C_H____T_E_S_T____13()"
-                  moduleName = "TestRunner"
-                  urlString = "file:///Users/phil/Workspace/FFNeuralNet/test/FFNeuralNetTests.cpp"
-                  timestampString = "416167022.767212"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
-                  offsetFromSymbolStart = "1018">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "____C_A_T_C_H____T_E_S_T____13()"
-                  moduleName = "TestRunner"
-                  urlString = "file:///Users/phil/Workspace/FFNeuralNet/test/FFNeuralNetTests.cpp"
-                  timestampString = "416167022.767425"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
-                  offsetFromSymbolStart = "1099">
-               </Location>
-            </Locations>
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "end()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -257,13 +227,77 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../src/LearningAlgorithm.h"
-            timestampString = "416264012.463637"
+            filePath = "../test/FFNeuralNetTests.cpp"
+            timestampString = "418580461.76048"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "end()"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "TEST_CASE( &quot;Test neural net correct evaluation&quot;, &quot;LayeredFeedForwardNeuralNet&quot; )"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../test/FFNeuralNetTests.cpp"
+            timestampString = "418580461.76048"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "TEST_CASE( &quot;Test neural net weight matrix initialisation&quot;, &quot;FFNetUtil&quot; )"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../test/FFNeuralNetTests.cpp"
+            timestampString = "418580461.76048"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "TEST_CASE( &quot;Test neural net backprop for xor test case&quot;, &quot;LayeredFeedForwardNeuralNet&quot; )"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../src/BackPropagation.cpp"
+            timestampString = "418580461.76048"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "BackPropagation::TrainNeuralNetwork(LayeredFeedForwardNeuralNet&amp; networkToTrain, const TrainingSet&amp; trainingSet)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../src/BackPropagation.cpp"
+            timestampString = "418580461.76048"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "BackPropagation::TrainNeuralNetwork(LayeredFeedForwardNeuralNet&amp; networkToTrain, const TrainingSet&amp; trainingSet)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
