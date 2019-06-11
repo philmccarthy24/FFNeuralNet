@@ -15,3 +15,15 @@ Also want to explore hidden markov models.
 
 Phil McCarthy
 April 2014
+
+=========================
+Updated 2019
+------------
+Added CMakeLists.txt for cross platform C++ support.
+If Eigen repo (https://github.com/libigl/eigen) is in ..\eigen directory, then after running cmake on Eigen, the following
+will configure FFNeuralNet for building:
+
+mkdir build
+cd build
+cmake -G "Visual Studio 15 2017" .. -DEigen3_DIR=..\..\eigen\cmake
+msbuild FFNeuralNet.sln /p:Configuration=Release
