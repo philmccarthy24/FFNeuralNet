@@ -16,14 +16,28 @@ Also want to explore hidden markov models.
 Phil McCarthy
 April 2014
 
-=========================
-Updated 2019
-------------
-Added CMakeLists.txt for cross platform C++ support.
-If Eigen repo (https://github.com/libigl/eigen) is in ..\eigen directory, then after running cmake on Eigen, the following
-will configure FFNeuralNet for building:
+---
 
+Updated 2019
+============
+
+Added CMakeLists.txt for cross platform C++ support.
+
+Use a package manager like vcpkg to fetch libs:
+```
+git clone https://github.com/microsoft/vcpkg.git
+cd vcpkg
+.\bootstrap-vcpkg.bat or ./bootstrap-vcpkg.sh
+.\vcpkg install eigen3
+.\vcpkg install catch
+```
+
+If vcpkg dir is set to environment variable %VCPKG_ROOT% Then build using:
+
+```
+cd FFNeuralNet
 mkdir build
 cd build
-cmake -G "Visual Studio 15 2017" .. -DEigen3_DIR=..\..\eigen\cmake
-msbuild FFNeuralNet.sln /p:Configuration=Release
+cmake -G "Visual Studio 15 2017" .. -DCMAKE_TOOLCHAIN_FILE="$($Env:VCPKG_ROOT)\scripts\buildsystems\vcpkg.cmake"
+cmake --build . --config Release
+```

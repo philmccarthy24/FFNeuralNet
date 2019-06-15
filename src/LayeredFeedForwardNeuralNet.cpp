@@ -32,7 +32,7 @@ LayeredFeedForwardNeuralNet::LayeredFeedForwardNeuralNet(std::vector<long> topol
         // set the last column in the weight matrix to the 1 weight bias value
         layerInputWeights.col(topology[idx - 1]).fill(1.0);
         
-        std::cout << "initialised to: " << layerInputWeights << std::endl;
+        //std::cout << "initialised to: " << layerInputWeights << std::endl;
         
         
         // finally add the layer to the vector

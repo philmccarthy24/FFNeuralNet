@@ -114,8 +114,8 @@ void BackPropagation::TrainNeuralNetwork(LayeredFeedForwardNeuralNet& networkToT
                 weightsToAdjust += layerInputWeightsDelta;
                 networkToTrain.SetLayerInputWeights(weightsToAdjust, layerIndex);
                 
-                std::cout << "Weights for layer " << layerIndex << " are now:" << std::endl;
-                std::cout << weightsToAdjust << std::endl;
+                //std::cout << "Weights for layer " << layerIndex << " are now:" << std::endl;
+                //std::cout << weightsToAdjust << std::endl;
             }
             
             // ok now update the cumulative network error.

@@ -3,7 +3,7 @@
 //  TestRunner
 //
 //  Created by Phil McCarthy on 09/03/2014.
-//  Copyright (c) 2014 Cognitive Research Systems. All rights reserved.
+//  Copyright (c) Phil McCarthy all rights reserved.
 //
 
 #include <stdio.h>
@@ -12,7 +12,7 @@
 
 #define CATCH_CONFIG_MAIN
 
-#include "catch/catch.hpp"
+#include "catch.hpp"
 
 static const TrainingSet BuildXorTrainingSet()
 {
