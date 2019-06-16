@@ -18,8 +18,8 @@ April 2014
 
 ---
 
-Updated 2019
-============
+Updated June 2019
+=================
 
 Added CMakeLists.txt for cross platform C++ support.
 
